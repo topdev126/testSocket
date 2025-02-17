@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend WebSocket Test</title>
+</head>
+<body>
+    <h1>Backend WebSocket Test</h1>
+    <div id="messages"></div>
+    <script src="https://cdn.socket.io/4.1.2/socket.io.min.js"></script>
+    <script>
+        const socket = io.connect('http://localhost:5000');
+        socket.on('message', function(msg) {
+            const messageDiv = document.getElementById('messages');
+            messageDiv.innerHTML = '<p>' + msg + '</p>';
+        });
+    </script>
+</body>
+</html>
